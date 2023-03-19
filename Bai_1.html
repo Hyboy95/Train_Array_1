@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai_1</title>
+</head>
+<body>
+<label for="idx_arr">Nhập vào phần tử của mảng</label>
+<input type="text" id ="idx_arr">
+<button id="btn_add" onclick="add_element_to_array()">Add</button>
+<button id="btn_display" onclick="display_array()">Display</button>
+<button id="btn_check" onclick="check_array()">Check</button>
+<p id="result"></p>
+<p id="check_result"></p>
+</body>
+</html>
+<script>
+    let array = [];
+    function add_element_to_array() {
+        let input = document.getElementById("idx_arr").value;
+        alert(`Phần tử ${input} được thêm vào vị trí ${array.length}`);
+        array.push(input);
+        document.getElementById("idx_arr").value = '';
+    }
+    function display_array() {
+        document.getElementById('result').innerHTML = `Mảng bạn nhập vào là:[${array}]`;
+    }
+
+    function check_array(){
+        let count = 0;
+        let data = ''
+        let flag = false;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] >= 10) {
+                count += 1;
+                data += (array[i] + ',');
+                flag = true;
+            }
+        }
+
+        let check_result = document.getElementById('check_result');
+        if (!flag) {
+            check_result.innerHTML = 'Không có số nào trong chuỗi lớn hơn 10';
+        } else {
+            check_result.innerHTML = `Mảng có ${count} số lớn hơn hoặc bằng 10: ${data}`;
+        }
+    }
+</script>

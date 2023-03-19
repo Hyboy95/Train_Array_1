@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai_8</title>
+</head>
+<body>
+<label for="idx_arr">Nhập vào phần tử của mảng</label>
+<input type="text" id ="idx_arr">
+<button id="btn_add" onclick="add_element_to_array()">Add</button>
+<button id="btn_display" onclick="display_array()">Display</button>
+<button id="btn_reset" onclick="reset_array()">Reset</button>
+<button id="btn_arrange" onclick="arrange_array()">Arrange</button>
+<p id="result"></p>
+<p id="check_result"></p>
+</body>
+</html>
+<script>
+  let array = [];
+  function add_element_to_array() {
+    let input = +document.getElementById('idx_arr').value;
+    alert(`Phần tử ${input} được thêm vào vị trí ${array.length}`);
+    array.push(input);
+    document.getElementById('idx_arr').value = '';
+  }
+
+  function display_array() {
+    document.getElementById('result').innerHTML = `Mảng bạn nhập vào là: [${array}] <br>`;
+  }
+
+  function reset_array() {
+    array = [];
+    document.getElementById('result').innerHTML = `Mảng bạn nhập đã được reset`;
+  }
+
+  function arrange_array() {
+    for (let i = 0; i < array.length; i++) {
+      for (let j = 0; j < array.length; j++) {
+        x = array[j];
+        if (array[j] < array[j+1]) {
+          array[j] = array[j+1];
+          array[j+1] = x;
+        }
+      }
+    }
+    document.getElementById('check_result').innerHTML = `Mảng được sắp xếp theo thứ tự giảm dần: [${array}]`;
+  }
+
+</script>

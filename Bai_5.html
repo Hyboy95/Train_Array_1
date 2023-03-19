@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai_5</title>
+</head>
+<body>
+<label for="idx_string">Nhập vào chuỗi</label>
+<input type="text" id ="idx_string">
+<button id="btn_display" onclick="display_string()">Display</button>
+<button id="btn_check" onclick="check_negative()">Check</button>
+<p id="result"></p>
+<p id="check_result"></p>
+</body>
+</html>
+<script>
+  let result = document.getElementById('result');
+
+  function display_string() {
+    let input = document.getElementById('idx_string').value;
+    result.innerHTML = input;
+  }
+
+  function check_negative() {
+    let input = document.getElementById('idx_string').value;
+    let arr = input.split(',');
+    let count_negative = 0;
+    let check_neg = true;
+    let negative_num = '';
+    for (let i = 0; i < arr.length; i++) {
+      if (parseInt(arr[i]) < 0) {
+        count_negative += 1;
+        check_neg = false;
+        negative_num += arr[i] + ',';
+      }
+    }
+    if (!check_neg) {
+      document.getElementById('check_result').innerHTML = `Chuỗi nhập vào chứa ${count_negative} số âm gồm : ${negative_num}`
+    } else {
+      document.getElementById('check_result').innerHTML = `Chuỗi nhập vào không chứa số âm`
+
+    }
+  }
+</script>

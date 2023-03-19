@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai_6</title>
+</head>
+<body>
+<label for="idx_arr">Nhập vào phần tử của mảng</label>
+<input type="text" id ="idx_arr">
+<button id="btn_add" onclick="add_element_to_array()">Add</button>
+<button id="btn_display" onclick="display_array()">Display</button>
+<button id="btn_reset" onclick="reset_array()">Reset</button> <br><br>
+<label for="add_V">Nhập vào số nguyên V</label>
+<input type="text" id ="add_V">
+<button id="btn_check" onclick="check_V()">Check</button>
+<p id="result"></p>
+<p id="check_result"></p>
+</body>
+</html>
+<script>
+  let array = [];
+
+  function add_element_to_array() {
+    let input = +document.getElementById('idx_arr').value;
+    alert(`Phần tử ${input} được thêm vào vị trí ${array.length}`);
+    array.push(input);
+    document.getElementById('idx_arr').value = '';
+  }
+
+  function display_array() {
+    document.getElementById('result').innerHTML = `Mảng bạn nhập vào là: [${array}]`;
+  }
+
+  function reset_array() {
+    array = [];
+    document.getElementById('result').innerHTML = `Mảng đã được reset`;
+  }
+  function check_V() {
+    let V_number = +document.getElementById('add_V').value;
+    let check = false;
+    for (let i = 0; i < array.length; i++) {
+      if (V_number == array[i]) {
+        check = true;
+      }
+    }
+    if (check) {
+      document.getElementById('check_result').innerHTML = `${V_number} is in the array`;
+    } else {
+      document.getElementById('check_result').innerHTML = `${V_number} is not in the array`;
+
+    }
+  }
+</script>

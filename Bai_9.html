@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai_9</title>
+</head>
+<body>
+<label for="idx_arr1">Nhập vào phần tử của mảng a</label>
+<input type="text" id="idx_arr1">
+<button id="btn_add1" onclick="add_element_to_array_a()">Add a</button>
+<button id="btn_display1" onclick="display_a()">Display a</button>
+<button id="btn_reset1" onclick="reset_array_a()">Reset a</button>
+<br>
+<label for="idx_arr2">Nhập vào phần tử của mảng b</label>
+<input type="text" id="idx_arr2">
+<button id="btn_add2" onclick="add_element_to_array_b()">Add b</button>
+<button id="btn_display2" onclick="display_b()">Display b</button>
+<button id="btn_reset2" onclick="reset_array_b()">Reset b</button>
+<br>
+<button id="btn_display3" onclick="display_c()">Display c</button>
+<p id="result_a"></p>
+<p id="result_b"></p>
+<p id="result_c"></p>
+</body>
+</html>
+<script>
+    let arr_a = [];
+    let arr_b = [];
+    let arr_c = [];
+
+    function add_element_to_array_a() {
+        let input_a = +document.getElementById('idx_arr1').value;
+        alert(`Phần tử ${input_a} được thêm vào vị trí ${arr_a.length} của mảng a`);
+        arr_a.push(input_a);
+        document.getElementById('idx_arr1').value = '';
+    }
+
+    function add_element_to_array_b() {
+        let input_b = +document.getElementById('idx_arr2').value;
+        alert(`Phần tử ${input_b} được thêm vào vị trí ${arr_b.length} của mảng b`);
+        arr_b.push(input_b);
+        document.getElementById('idx_arr2').value = '';
+    }
+
+    function display_a() {
+        document.getElementById('result_a').innerHTML = `Mảng a: [${arr_a}]`;
+    }
+
+    function display_b() {
+        document.getElementById('result_b').innerHTML = `Mảng b: [${arr_b}]`;
+    }
+
+    function reset_array_a() {
+        arr_a = [];
+        document.getElementById('result_a').innerHTML = `Mảng a được reset`;
+    }
+
+    function reset_array_b() {
+        arr_b = [];
+        document.getElementById('result_b').innerHTML = `Mảng b được reset`;
+    }
+
+
+    function display_c() {
+        arr_c = arr_a.concat(arr_b);
+        document.getElementById('result_c').innerHTML = `Mảng c: [${arr_c}]`;
+    }
+</script>
